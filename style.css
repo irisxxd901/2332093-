@@ -1,0 +1,96 @@
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* 少しグレーの背景 */
+    color: #333;
+  }
+  
+  /* サイト全体のコンテナ */
+  .container {
+    max-width: 900px;
+    margin: 0 auto; /* 中央揃え */
+    padding: 20px;
+  }
+  
+  /* ヘッダー */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* サイトタイトル (CSSでのフォント装飾の例) */
+  header h1 {
+    margin: 0;
+    font-family: "Georgia", "Times New Roman", serif; /* フォントの種類を変更 */
+    font-size: 2.5em; /* フォントサイズを大きく */
+    text-shadow: 2px 2px 4px #000; /* 文字に影をつける */
+  }
+  
+  /* ナビゲーション */
+  nav {
+    background-color: #444;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none; /* リストの黒点を消す */
+    margin: 0;
+    padding: 0;
+    display: flex; /* 横並びにする */
+    justify-content: center; /* 中央に寄せる */
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none; /* 下線を消す */
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s; /* ホバー時のアニメーション */
+  }
+  
+  nav ul li a:hover {
+    background-color: #666; /* マウスを乗せた時の背景色 */
+  }
+  
+  /* メインコンテンツエリア */
+  main {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* コンテンツに影をつける */
+    border-radius: 8px; /* 角を丸くする */
+  }
+  
+  /* レシピのタイトル (CSSでのフォント装飾の例) */
+  h2 {
+    color: #8B4513; /* 茶色っぽい色 */
+    border-bottom: 3px solid #8B4513; /* 下線を引く */
+    padding-bottom: 10px;
+    font-size: 2em;
+  }
+  
+  h3 {
+    color: #555;
+    border-left: 5px solid #8B4513;
+    padding-left: 10px;
+  }
+  
+  /* レシピの画像 */
+  .recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* 画像の角を丸くする */
+    margin-bottom: 20px;
+  }
+  
+  /* フッター */
+  footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #333;
+    color: white;
+  }
