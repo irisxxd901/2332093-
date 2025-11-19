@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>BMI健康チェッカー</title>
+
+	<script>
+ 	function checkBMI() {
+ 		// 1. 入力値の取得 (ex85.html, ex85-2.html 参考)
+        // 文字列として取得されるため Number() で数値に変換します
+		var h_val = document.getElementById("height").value;
+		var w_val = document.getElementById("weight").value;
+		var h = Number(h_val);
+		var w = Number(w_val);
+
+		// 2. BMIの計算 (体重kg ÷ 身長m ÷ 身長m)
+        // 身長はcm入力なので、計算式の中で100で割ってmにしています
+		var bmi = w / ((h / 100) * (h / 100));
+
+        // 小数点第2位以下を切り捨てて整形 (Math.floor利用)
+        // 例: 22.56... -> 225.6... -> 225 -> 22.5
+        bmi = Math.floor(bmi * 10) / 10;
+
+		// 3. 結果と判定メッセージの作成
+        var resultMessage = "";
+        var bgColor = "white"; // デフォルトの色
+
+        if (bmi < 18.5) {
+            resultMessage = "低体重（痩せ型）です。";
+            bgColor = "#e0f7fa"; // 水色 (ex82.js 参考: 色の変更)
+        } else if (bmi < 25) {
+            resultMessage = "普通体重です。";
+            bgColor = "#e8f5e9"; // 薄い緑
+        } else {
+            resultMessage = "肥満気味です。注意しましょう。";
+            bgColor = "#ffebee"; // 薄い赤
+        }
+
+		// 4. 結果の表示 (ex85-2.html 参考: テキストボックスへの出力)
+		document.getElementById("bmi_value").value = bmi;
+        document.getElementById("message").value = resultMessage;
+
+        // 5. 背景色の変更 (ex82.js 参考: document.body.style.backgroundColor)
+        // 計算結果に合わせて視覚的にわかりやすく色を変えます
+        document.body.style.backgroundColor = bgColor;
+        
+        // 6. アラートでの表示 (ex83.html, ex84.html 参考)
+        alert("あなたのBMIは " + bmi + " です。\n" + resultMessage);
+ 	}
+	</script>
+
+    <style>
+        /* 見やすくするためのCSS（講義資料ex82.jsでもスタイル操作があったため補足） */
+        body { font-family: "メイリオ", sans-serif; padding: 20px; transition: background-color 0.5s; }
+        form { background: rgba(255,255,255,0.8); padding: 20px; border-radius: 8px; display: inline-block; }
+        input[type="text"] { padding: 5px; font-size: 1em; }
+        input[type="button"] { padding: 5px 15px; font-size: 1em; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+
+<h1>BMI（体格指数）チェッカー</h1>
+<p>身長と体重を入力して、健康状態をチェックしましょう。</p>
+<p>※計算ボタンを押すと、結果に応じて背景色が変わります。</p>
+
+<form>
+    <p>
+        身長(cm): <br>
+        <input type="text" id="height" placeholder="例: 170" />
+    </p>
+    <p>
+        体重(kg): <br>
+        <input type="text" id="weight" placeholder="例: 60" />
+    </p>
+
+    <p>
+        <input type="button" onclick="checkBMI()" value="判定する" />
+    </p>
+
+    <hr>
+
+    <p>
+        BMI数値: <br>
+        <input type="text" id="bmi_value" readonly />
+    </p>
+    <p>
+        判定結果: <br>
+        <input type="text" id="message" size="40" readonly />
+    </p>
+</form>
+
+</body>
+</html>
